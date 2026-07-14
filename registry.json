@@ -1,17 +1,16 @@
-[
-  {
-    "id": "plugin-screenshot",
-    "name": "截图工具",
-    "description": "原生多显示器截图捕获、标注和裁剪工具",
-    "icon": "Camera",
-    "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/plugin-screenshot/icon.png",
-    "color": "#3b82f6",
-    "textColor": "#ffffff",
-    "version": "1.0.0",
-    "author": "ToolBox Team",
-    "categories": ["工具"],
-    "tags": ["screenshot", "capture", "annotation"],
-    "githubRepo": "fqyjfb/toolbox-plugin-screenshot",
-    "isBeta": false
-  }
-]
+{
+  "id": "plugin-screenshot",
+  "name": "截图工具",
+  "version": "1.0.0",
+  "description": "原生多显示器截图捕获、标注和裁剪工具",
+  "author": "ToolBox Team",
+  "entry": "dist/index.js",
+  "icon": "Camera",
+  "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/screenshot-plugin/icon.png",
+  "color": "#3b82f6",
+  "textColor": "#ffffff",
+  "categories": ["工具"],
+  "tags": ["screenshot", "capture", "annotation"],
+  "githubRepo": "fqyjfb/Screenshot-plugin",
+  "isBeta": false
+}
