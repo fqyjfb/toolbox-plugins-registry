@@ -9,6 +9,7 @@
     "textColor": "#ffffff",
     "version": "1.0.0",
     "author": "ToolBox Team",
+    "entry": "dist/index.js",
     "categories": ["工具"],
     "tags": ["screenshot", "capture", "annotation"],
     "githubRepo": "fqyjfb/Screenshot-plugin",
