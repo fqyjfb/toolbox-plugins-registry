@@ -29,6 +29,7 @@ toolbox-plugins-registry/
   "textColor": "#ffffff",
   "version": "1.0.0",
   "author": "作者",
+  "entry": "dist/index.js",
   "categories": ["分类"],
   "tags": ["标签"],
   "githubRepo": "fqyjfb/toolbox-plugin-example",
