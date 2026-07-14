@@ -7,7 +7,7 @@
     "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/screenshot-plugin/icon.png",
     "color": "#3b82f6",
     "textColor": "#ffffff",
-    "version": "1.0.0",
+    "version": "1.0.7",
     "author": "ToolBox Team",
     "entry": "dist/index.js",
     "categories": ["工具"],
