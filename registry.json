@@ -14,5 +14,21 @@
     "tags": ["screenshot", "capture", "annotation"],
     "githubRepo": "fqyjfb/Screenshot-plugin",
     "isBeta": false
+  },
+  {
+    "id": "plugin-color-palette",
+    "name": "调色板",
+    "description": "颜色选择、多格式转换与配色方案生成工具",
+    "icon": "Palette",
+    "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/color-palette-plugin/icon.png",
+    "color": "#f59e0b",
+    "textColor": "#ffffff",
+    "version": "1.0.0",
+    "author": "ToolBox Team",
+    "entry": "dist/index.js",
+    "categories": ["设计", "工具"],
+    "tags": ["color", "palette", "design", "picker", "scheme"],
+    "githubRepo": "fqyjfb/color-palette-plugin",
+    "isBeta": false
   }
 ]
