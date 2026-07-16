@@ -7,7 +7,7 @@
     "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/screenshot-plugin/icon.png",
     "color": "#3b82f6",
     "textColor": "#ffffff",
-    "version": "1.4.0",
+    "version": "1.5.0",
     "author": "ToolBox Team",
     "entry": "dist/index.js",
     "categories": ["工具"],
@@ -29,6 +29,22 @@
     "categories": ["设计", "工具"],
     "tags": ["color", "palette", "design", "picker", "scheme"],
     "githubRepo": "fqyjfb/color-palette-plugin",
+    "isBeta": false
+  },
+  {
+    "id": "plugin-file-manager",
+    "name": "文件管理",
+    "description": "文件管理工具，支持浏览系统文件、收藏常用路径、拖拽复制文件",
+    "icon": "Folder",
+    "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/file-manager-plugin/icon.png",
+    "color": "#059669",
+    "textColor": "#ffffff",
+    "version": "1.0.0",
+    "author": "ToolBox Team",
+    "entry": "dist/index.js",
+    "categories": ["文件", "工具"],
+    "tags": ["file", "manager", "filesystem", "explorer"],
+    "githubRepo": "fqyjfb/file-manager-plugin",
     "isBeta": false
   }
 ]
