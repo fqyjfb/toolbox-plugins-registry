@@ -62,5 +62,21 @@
     "tags": ["ocr", "text", "recognition", "image"],
     "githubRepo": "fqyjfb/orc-plugin",
     "isBeta": false
+  },
+  {
+    "id": "plugin-clipboard-manager",
+    "name": "剪贴板管理",
+    "description": "顺序多插槽剪贴板管理器，支持批量复制粘贴",
+    "icon": "Clipboard",
+    "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/clipboard-manager-plugin/icon.png",
+    "color": "#8b5cf6",
+    "textColor": "#ffffff",
+    "version": "1.0.0",
+    "author": "ToolBox Team",
+    "entry": "dist/index.js",
+    "categories": ["工具"],
+    "tags": ["clipboard", "copy", "paste", "manager"],
+    "githubRepo": "fqyjfb/clipboard-manager-plugin",
+    "isBeta": false
   }
 ]
