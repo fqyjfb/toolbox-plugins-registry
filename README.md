@@ -104,7 +104,7 @@ toolbox-plugins-registry/
 
 ## 📖 开发文档
 
-- [插件开发规范](docs/plugin-development-guide.md) - 详细的插件开发指南，包含架构概述、技术栈、项目结构、API 参考等
+- [插件开发规范](docs/plugin-development-guide.md) - 详细的插件开发指南，包含架构概述、技术栈、项目结构、API 参考、样式规范、主题适配等
 
 ## 📜 许可证
 
