@@ -495,7 +495,7 @@ if (pluginData?.isDark) {
 创建 `.github/workflows/release.yml`：
 
 ```yaml
-name: Release
+name: Create Release
 
 on:
   push:
@@ -503,15 +503,20 @@ on:
       - 'v*'
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: '24.x'
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
@@ -521,32 +526,45 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build
+      - name: Build plugin
         run: pnpm run build
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: plugin-build
-          path: dist/
-
-  release:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: plugin-build
-          path: dist/
+      - name: Create zip archive
+        run: zip -r plugin-{name}.zip dist manifest.json
 
       - name: Create Release
-        uses: softprops/action-gh-release@v2
+        uses: ncipollo/release-action@v1
         with:
-          files: dist/index.js
+          name: Release ${{ github.ref_name }}
+          tag: ${{ github.ref_name }}
+          body: |
+            ## Changes
+            - Build dist files
+            - Update plugin manifest
+          draft: false
+          prerelease: false
+          artifacts: 'plugin-{name}.zip'
 ```
+
+#### 关键配置说明
+
+| 配置项 | 说明 |
+|--------|------|
+| `permissions: contents: write` | **必须配置**，确保有权限创建 Release |
+| `node-version: '24.x'` | 使用 Node.js 24 版本，与开发环境一致 |
+| `pnpm install` | 使用 pnpm 安装依赖，**禁止使用 `npm ci`**（无 `package-lock.json`） |
+| `pnpm run build` | 使用 pnpm 执行构建脚本 |
+| `zip -r plugin-{name}.zip dist manifest.json` | 将构建产物和 manifest 打包为 zip |
+| `ncipollo/release-action@v1` | 创建正式的 GitHub Release，自动上传 zip 包 |
+
+#### 常见错误排查
+
+| 错误 | 原因 | 解决方案 |
+|------|------|----------|
+| `npm ci` 失败 | 项目使用 pnpm，无 `package-lock.json` | 改为 `pnpm install` |
+| `contents.write` 权限不足 | 未配置 `permissions` | 添加 `permissions: contents: write` |
+| Release 创建失败 | 使用了错误的 Action | 使用 `ncipollo/release-action@v1` |
+| 构建产物缺失 | `.gitignore` 排除了 `dist/` | 确保 `dist/` 目录在 git 跟踪中 |
 
 ### 分支管理规范
 
