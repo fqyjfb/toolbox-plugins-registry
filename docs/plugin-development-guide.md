@@ -548,14 +548,35 @@ jobs:
           files: dist/index.js
 ```
 
+### 分支管理规范
+
+插件仓库必须使用 `main` 作为主分支，禁止使用 `master`。
+
+| 分支类型 | 命名格式 | 用途 |
+|----------|----------|------|
+| 主分支 | `main` | 稳定版本，包含已构建的 `dist/index.js` |
+| 功能分支 | `feature/{feature-name}` | 开发新功能 |
+| 修复分支 | `hotfix/{issue-name}` | 紧急修复 |
+
+**创建仓库时**：确保 GitHub 仓库默认分支为 `main`
+
+```bash
+# 初始化时使用 main 分支
+git init -b main
+
+# 若已有 master 分支，重命名为 main
+git branch -m master main
+git push -u origin main
+```
+
 ### 发布流程
 
 1. 更新 `manifest.json` 和 `package.json` 中的版本号
 2. 构建：`pnpm run build`
 3. **提交构建产物**：`git add -A`（确保 `dist/index.js` 包含在内）
 4. **提交代码**：`git commit -m "release: v1.0.0"`
-5. **推送代码和构建产物**：`git push origin main`（构建产物必须跟随代码一起推送）
-6. 创建标签：`git tag v1.0.0 && git push origin v1.0.0`
+5. **推送代码和构建产物到 main 分支**：`git push origin main`（构建产物必须跟随代码一起推送）
+6. 创建标签触发 Release：`git tag v1.0.0 && git push origin v1.0.0`
 7. 在 `toolbox-plugins-registry` 中注册插件
 
 ### 注册表更新
