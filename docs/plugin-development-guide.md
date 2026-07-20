@@ -480,7 +480,15 @@ if (pluginData?.isDark) {
 
 1. 安装依赖：`pnpm install`
 2. 构建：`pnpm run build`
-3. 提交构建产物：将 `dist/index.js` 提交到 Git
+3. 提交构建产物：将 `dist/index.js` 提交到 Git（**必须提交，插件安装时直接使用构建产物**）
+
+### 构建产物管理
+
+**重要**：插件安装时不执行 `pnpm install` 或 `pnpm run build`，而是直接使用仓库中已构建的 `dist/index.js`。因此：
+
+- **dist/index.js 必须提交到 Git**：确保 `.gitignore` 中不排除 `dist/` 目录
+- **构建产物跟随代码一起推送**：每次代码变更后需重新构建并推送构建产物
+- **GitHub Actions 自动构建**：推荐配置 Actions 工作流，在推送 tag 时自动构建并上传到 Release
 
 ### GitHub Actions 自动构建
 
@@ -544,10 +552,36 @@ jobs:
 
 1. 更新 `manifest.json` 和 `package.json` 中的版本号
 2. 构建：`pnpm run build`
-3. 提交代码：`git add -A && git commit -m "release: v1.0.0"`
-4. 推送：`git push origin main`
-5. 创建标签：`git tag v1.0.0 && git push origin v1.0.0`
-6. 在 `toolbox-plugins-registry` 中注册插件
+3. **提交构建产物**：`git add -A`（确保 `dist/index.js` 包含在内）
+4. **提交代码**：`git commit -m "release: v1.0.0"`
+5. **推送代码和构建产物**：`git push origin main`（构建产物必须跟随代码一起推送）
+6. 创建标签：`git tag v1.0.0 && git push origin v1.0.0`
+7. 在 `toolbox-plugins-registry` 中注册插件
+
+### 注册表更新
+
+插件发布后，需要在 `toolbox-plugins-registry` 的 `registry.json` 中添加插件条目：
+
+```json
+{
+  "id": "plugin-example",
+  "name": "示例插件",
+  "version": "1.0.0",
+  "description": "插件功能描述",
+  "icon": "Package",
+  "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/plugin-example/icon.png",
+  "color": "#3b82f6",
+  "textColor": "#ffffff",
+  "author": "Author Name",
+  "entry": "dist/index.js",
+  "categories": ["工具"],
+  "tags": ["example", "demo"],
+  "githubRepo": "fqyjfb/plugin-example",
+  "isBeta": false
+}
+```
+
+注册表更新后，需将 `toolbox-plugins-registry` 仓库推送到 GitHub，以便插件商店获取最新插件列表。
 
 ---
 

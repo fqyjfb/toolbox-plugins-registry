@@ -78,5 +78,21 @@
     "tags": ["clipboard", "copy", "paste", "manager"],
     "githubRepo": "fqyjfb/clipboard-manager-plugin",
     "isBeta": false
+  },
+  {
+    "id": "plugin-image-change",
+    "name": "图片转换",
+    "description": "支持本地图片、网络图片、SVG代码转换为PNG或ICO格式",
+    "icon": "Image",
+    "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/image-change-plugin/icon.png",
+    "color": "#3b82f6",
+    "textColor": "#ffffff",
+    "version": "1.0.0",
+    "author": "ToolBox Team",
+    "entry": "dist/index.js",
+    "categories": ["工具"],
+    "tags": ["image", "convert", "png", "ico", "svg"],
+    "githubRepo": "fqyjfb/image-change-plugin",
+    "isBeta": false
   }
 ]
