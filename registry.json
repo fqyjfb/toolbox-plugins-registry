@@ -94,5 +94,21 @@
     "tags": ["image", "convert", "png", "ico", "svg"],
     "githubRepo": "fqyjfb/image-change-plugin",
     "isBeta": false
+  },
+  {
+    "id": "plugin-agnes-ai",
+    "name": "Agnes AI",
+    "description": "AI助手聊天、字体生成器、历史记录管理，集成 Agnes AI 服务",
+    "icon": "Wand2",
+    "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/agnes-ai-plugin/icon.png",
+    "color": "#8b5cf6",
+    "textColor": "#ffffff",
+    "version": "1.0.0",
+    "author": "ToolBox Team",
+    "entry": "dist/index.js",
+    "categories": ["AI", "工具"],
+    "tags": ["ai", "chat", "font", "generator", "agnes"],
+    "githubRepo": "fqyjfb/agnes-ai-plugin",
+    "isBeta": false
   }
 ]
