@@ -110,5 +110,21 @@
     "tags": ["ai", "chat", "font", "generator", "agnes"],
     "githubRepo": "fqyjfb/agnes-ai-plugin",
     "isBeta": false
+  },
+  {
+    "id": "plugin-conversion",
+    "name": "单位换算",
+    "description": "多功能单位换算工具，支持长度、温度、重量、体积等实时转换",
+    "icon": "ArrowRightLeft",
+    "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/conversion-plugin/icon.png",
+    "color": "#059669",
+    "textColor": "#ffffff",
+    "version": "1.0.0",
+    "author": "ToolBox Team",
+    "entry": "dist/index.js",
+    "categories": ["工具"],
+    "tags": ["conversion", "unit", "length", "temperature", "weight", "volume"],
+    "githubRepo": "fqyjfb/conversion-plugin",
+    "isBeta": false
   }
 ]
