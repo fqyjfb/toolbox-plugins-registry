@@ -151,7 +151,7 @@
     "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/s3-disk-plugin/icon.png",
     "color": "#3b82f6",
     "textColor": "#ffffff",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "author": "ToolBox Team",
     "entry": "dist/index.js",
     "categories": ["工具", "文件"],
