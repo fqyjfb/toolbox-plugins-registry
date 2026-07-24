@@ -7,13 +7,15 @@
     "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/screenshot-plugin/icon.png",
     "color": "#3b82f6",
     "textColor": "#ffffff",
-    "version": "1.5.1",
+    "version": "1.5.2",
     "author": "ToolBox Team",
     "entry": "dist/index.js",
     "categories": ["工具"],
     "tags": ["screenshot", "capture", "annotation"],
     "githubRepo": "fqyjfb/Screenshot-plugin",
-    "isBeta": false
+    "isBeta": false,
+    "width": 600,
+    "height": 450
   },
   {
     "id": "plugin-color-palette",
@@ -23,13 +25,15 @@
     "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/color-palette-plugin/icon.png",
     "color": "#f59e0b",
     "textColor": "#ffffff",
-    "version": "1.2.1",
+    "version": "1.2.2",
     "author": "ToolBox Team",
     "entry": "dist/index.js",
     "categories": ["设计", "工具"],
     "tags": ["color", "palette", "design", "picker", "scheme"],
     "githubRepo": "fqyjfb/color-palette-plugin",
-    "isBeta": false
+    "isBeta": false,
+    "width": 640,
+    "height": 480
   },
   {
     "id": "plugin-file-manager",
@@ -39,13 +43,15 @@
     "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/file-manager-plugin/icon.png",
     "color": "#059669",
     "textColor": "#ffffff",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "author": "ToolBox Team",
     "entry": "dist/index.js",
     "categories": ["文件", "工具"],
     "tags": ["file", "manager", "filesystem", "explorer"],
     "githubRepo": "fqyjfb/file-manager-plugin",
-    "isBeta": false
+    "isBeta": false,
+    "width": 1100,
+    "height": 600
   },
   {
     "id": "plugin-orc",
@@ -55,13 +61,15 @@
     "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/orc-plugin/icon.png",
     "color": "#3b82f6",
     "textColor": "#ffffff",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "author": "ToolBox Team",
     "entry": "dist/index.js",
     "categories": ["工具"],
     "tags": ["ocr", "text", "recognition", "image"],
     "githubRepo": "fqyjfb/orc-plugin",
-    "isBeta": false
+    "isBeta": false,
+    "width": 880,
+    "height": 600
   },
   {
     "id": "plugin-clipboard-manager",
@@ -71,13 +79,15 @@
     "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/clipboard-manager-plugin/icon.png",
     "color": "#8b5cf6",
     "textColor": "#ffffff",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "author": "ToolBox Team",
     "entry": "dist/index.js",
     "categories": ["工具"],
     "tags": ["clipboard", "copy", "paste", "manager"],
     "githubRepo": "fqyjfb/clipboard-manager-plugin",
-    "isBeta": false
+    "isBeta": false,
+    "width": 480,
+    "height": 400
   },
   {
     "id": "plugin-image-change",
@@ -87,13 +97,15 @@
     "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/image-change-plugin/icon.png",
     "color": "#3b82f6",
     "textColor": "#ffffff",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "author": "ToolBox Team",
     "entry": "dist/index.js",
     "categories": ["工具"],
     "tags": ["image", "convert", "png", "ico", "svg"],
     "githubRepo": "fqyjfb/image-change-plugin",
-    "isBeta": false
+    "isBeta": false,
+    "width": 720,
+    "height": 520
   },
   {
     "id": "plugin-agnes-ai",
@@ -101,15 +113,17 @@
     "description": "AI助手聊天、字体生成器、历史记录管理，集成 Agnes AI 服务",
     "icon": "Wand2",
     "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/agnes-ai-plugin/icon.png",
-    "color": "#8b5cf6",
+    "color": "#22c55e",
     "textColor": "#ffffff",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "author": "ToolBox Team",
     "entry": "dist/index.js",
     "categories": ["AI", "工具"],
     "tags": ["ai", "chat", "font", "generator", "agnes"],
     "githubRepo": "fqyjfb/agnes-ai-plugin",
-    "isBeta": false
+    "isBeta": false,
+    "width": 1024,
+    "height": 640
   },
   {
     "id": "plugin-conversion",
@@ -119,12 +133,32 @@
     "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/conversion-plugin/icon.png",
     "color": "#059669",
     "textColor": "#ffffff",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "author": "ToolBox Team",
     "entry": "dist/index.js",
     "categories": ["工具"],
     "tags": ["conversion", "unit", "length", "temperature", "weight", "volume"],
     "githubRepo": "fqyjfb/conversion-plugin",
-    "isBeta": false
+    "isBeta": false,
+    "width": 520,
+    "height": 480
+  },
+  {
+    "id": "plugin-s3-disk",
+    "name": "S3 云存储管理器",
+    "description": "现代 S3 对象存储浏览器，支持 AWS S3、Cloudflare R2、MinIO 等，拖拽上传、文件预览、代码编辑、批量操作",
+    "icon": "HardDrive",
+    "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/s3-disk-plugin/icon.png",
+    "color": "#3b82f6",
+    "textColor": "#ffffff",
+    "version": "1.0.0",
+    "author": "ToolBox Team",
+    "entry": "dist/index.js",
+    "categories": ["工具", "文件"],
+    "tags": ["s3", "storage", "cloud", "minio", "r2", "file", "object"],
+    "githubRepo": "fqyjfb/s3-disk-plugin",
+    "isBeta": false,
+    "width": 1200,
+    "height": 800
   }
 ]
