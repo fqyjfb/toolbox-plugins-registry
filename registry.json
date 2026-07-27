@@ -61,7 +61,7 @@
     "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/orc-plugin/icon.png",
     "color": "#3b82f6",
     "textColor": "#ffffff",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "author": "ToolBox Team",
     "entry": "dist/index.js",
     "categories": ["工具"],
