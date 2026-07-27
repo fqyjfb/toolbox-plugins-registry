@@ -83,8 +83,8 @@ plugin-example/
   "author": "Author Name",
   "icon": "Package",
   "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/plugin-example/icon.png",
-  "color": "#3b82f6",
-  "textColor": "#ffffff",
+  "color": "#18181B",
+  "textColor": "#FFFFFF",
   "categories": ["工具"],
   "tags": ["example", "demo"],
   "githubRepo": "fqyjfb/plugin-example",
@@ -105,7 +105,7 @@ plugin-example/
 | `icon` | string | 是 | Lucide 图标名，如 `Palette`、`Camera`、`Package` |
 | `iconUrl` | string | 否 | 插件图标 URL |
 | `color` | string | 是 | 主色调，HEX 格式 |
-| `textColor` | string | 否 | 图标文字色，默认 `#ffffff` |
+| `textColor` | string | 否 | 图标文字色，默认 `#FFFFFF`。插件商店中按钮文字会自动根据主题适配，浅色模式显示白色，深色模式显示深色 |
 | `categories` | string[] | 是 | 分类标签数组 |
 | `tags` | string[] | 否 | 搜索标签，小写英文 |
 | `githubRepo` | string | 是 | GitHub 仓库地址，格式 `{owner}/{repo}` |
@@ -240,8 +240,8 @@ function registerPlugin(api: any) {
     id: 'plugin-example',
     name: '示例插件',
     iconName: 'Package',
-    color: '#3b82f6',
-    textColor: '#ffffff',
+    color: '#18181B',
+    textColor: '#FFFFFF',
     path: '/tools/plugin-example',
     component: ToolPanel,
   });
@@ -352,8 +352,8 @@ registerTool({
   id: 'plugin-example',
   name: '示例插件',
   iconName: 'Package',
-  color: '#3b82f6',
-  textColor: '#ffffff',
+  color: '#18181B',
+  textColor: '#FFFFFF',
   path: '/tools/plugin-example',
   component: ToolPanel,
 });
@@ -440,8 +440,8 @@ registerSidebarButton({
 - 圆角：6px 或 8px
 
 **按钮**：
-- 主按钮：实心填充 `bg-primary text-white`
-- 次按钮：描边 `border border-gray-300 text-gray-700`
+- 主按钮：实心填充 `bg-primary text-button-text`，文字颜色自动适配主题
+- 次按钮：描边 `border border-gray-300 text-gray-700 dark:text-gray-300`
 - 悬停效果：加深 10%，不切换颜色
 - 禁用全圆角（`rounded-full`）
 
@@ -620,8 +620,8 @@ git push -u origin main
   "description": "插件功能描述",
   "icon": "Package",
   "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/plugin-example/icon.png",
-  "color": "#3b82f6",
-  "textColor": "#ffffff",
+  "color": "#18181B",
+  "textColor": "#FFFFFF",
   "author": "Author Name",
   "entry": "dist/index.js",
   "categories": ["工具"],
@@ -736,7 +736,7 @@ const ToolPanel: React.FC = () => {
         />
         <button
           onClick={addTodo}
-          className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
+          className="px-4 py-2 bg-primary text-button-text rounded-lg hover:bg-primary/90 transition-colors"
         >
           <Plus className="w-5 h-5" />
         </button>
