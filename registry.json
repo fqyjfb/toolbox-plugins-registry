@@ -169,7 +169,7 @@
     "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/favorite-plugin/icon.png",
     "color": "#2563eb",
     "textColor": "#ffffff",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "author": "ToolBox Team",
     "entry": "dist/index.js",
     "categories": ["工具", "效率"],
