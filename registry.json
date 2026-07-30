@@ -178,5 +178,23 @@
     "isBeta": false,
     "width": 1000,
     "height": 680
+  },
+  {
+    "id": "calendar-diary-plugin",
+    "name": "日历日记本",
+    "description": "一个功能强大的日历与事件管理插件，支持月、周、日、年、议程等多种视图",
+    "icon": "Calendar",
+    "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/calendar-diary-plugin/icon.png",
+    "color": "#2563eb",
+    "textColor": "#ffffff",
+    "version": "0.1.0",
+    "author": "ToolBox Team",
+    "entry": "dist/index.js",
+    "categories": ["工具"],
+    "tags": ["calendar", "diary", "event", "日历", "日记本"],
+    "githubRepo": "fqyjfb/calendar-diary-plugin",
+    "isBeta": false,
+    "width": 1100,
+    "height": 800
   }
 ]

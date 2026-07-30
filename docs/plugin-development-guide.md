@@ -277,6 +277,8 @@ interface PluginData {
   pluginName: string;        // 插件名称
   manifest: PluginManifest;  // 完整的 manifest 对象
   isDark: boolean;           // 当前主题是否为深色模式
+  userId: string | null;     // 当前登录用户 ID，未登录时为 null
+  pluginDir: string;         // 插件安装目录路径
 }
 ```
 
@@ -339,6 +341,148 @@ const userDataPath = await window.electron.getUserDataPath();
 // 获取版本信息
 const version = await window.electron.getVersion();
 ```
+
+#### 插件本地存储（SQLite）
+
+插件可以使用 `window.electron.plugin.storage` API 将数据持久化存储到本地 SQLite 数据库。数据存储在 `plugin_data` 表中，支持 key-value 形式存储 JSON 对象。
+
+**获取上下文信息**：
+
+```typescript
+const pluginData = window.__PLUGIN_DATA__;
+const pluginId = pluginData?.pluginId || 'my-plugin';
+const userId = pluginData?.userId || 'default';  // 未登录时使用 'default'
+```
+
+**API 方法**：
+
+| 方法 | 说明 | 参数 |
+|------|------|------|
+| `get(pluginId, userId, key?)` | 获取插件数据 | `key` 可选，不传则返回该插件所有数据 |
+| `set(pluginId, userId, key, value)` | 保存数据 | `value` 支持任意类型，自动 JSON 序列化 |
+| `delete(pluginId, userId, key?)` | 删除数据 | `key` 可选，不传则删除该插件所有数据 |
+
+**使用示例**：
+
+```typescript
+const pluginData = window.__PLUGIN_DATA__;
+const pluginId = pluginData?.pluginId || 'my-plugin';
+const userId = pluginData?.userId || 'default';
+
+// 1. 保存配置
+await window.electron.plugin.storage.set(pluginId, userId, 'config', {
+  theme: 'dark',
+  notifications: true,
+  maxItems: 100
+});
+
+// 2. 读取单个配置（自动 JSON 解析，返回原始对象）
+const config = await window.electron.plugin.storage.get(pluginId, userId, 'config');
+// config 返回: { theme: 'dark', notifications: true, maxItems: 100 } 或 null
+
+// 3. 获取插件所有数据（返回数组，每项为原始数据对象）
+const allData = await window.electron.plugin.storage.get(pluginId, userId);
+// allData 是数组，每项是对应 key 的数据对象
+
+// 4. 保存简单值
+await window.electron.plugin.storage.set(pluginId, userId, 'lastSyncTime', '2024-01-01T00:00:00Z');
+await window.electron.plugin.storage.set(pluginId, userId, 'count', 42);
+
+// 5. 删除单个 key
+await window.electron.plugin.storage.delete(pluginId, userId, 'config');
+
+// 6. 删除插件所有数据
+await window.electron.plugin.storage.delete(pluginId, userId);
+```
+
+**推荐封装**：
+
+```typescript
+class PluginStorage {
+  private pluginId: string;
+  private userId: string;
+
+  constructor(pluginId: string, userId: string) {
+    this.pluginId = pluginId;
+    this.userId = userId;
+  }
+
+  async getConfig<T>(): Promise<T | null> {
+    const result = await window.electron.plugin.storage.get(
+      this.pluginId, this.userId, 'config'
+    );
+    return result as T | null;
+  }
+
+  async saveConfig<T>(config: T): Promise<void> {
+    await window.electron.plugin.storage.set(
+      this.pluginId, this.userId, 'config', config
+    );
+  }
+
+  async getState<T>(key: string, defaultValue: T): Promise<T> {
+    const result = await window.electron.plugin.storage.get(
+      this.pluginId, this.userId, key
+    );
+    if (result !== null && result !== undefined) {
+      return result as T;
+    }
+    return defaultValue;
+  }
+
+  async setState<T>(key: string, value: T): Promise<void> {
+    await window.electron.plugin.storage.set(
+      this.pluginId, this.userId, key, value
+    );
+  }
+
+  async getByKey<T>(key: string): Promise<T | null> {
+    const result = await window.electron.plugin.storage.get(
+      this.pluginId, this.userId, key
+    );
+    return result as T | null;
+  }
+
+  async getAll(): Promise<unknown[]> {
+    const result = await window.electron.plugin.storage.get(this.pluginId, this.userId);
+    return Array.isArray(result) ? result : [];
+  }
+
+  async clearAll(): Promise<void> {
+    await window.electron.plugin.storage.delete(this.pluginId, this.userId);
+  }
+}
+```
+
+**数据存储最佳实践**：
+
+- **结构化存储**：将插件数据按 key 拆分存储，如 `config`、`data`、`settings`
+- **批量读取**：使用 `get(pluginId, userId)` 一次获取所有数据，减少 IPC 调用次数
+- **增量更新**：只更新变化的 key，避免整体数据覆盖
+- **版本控制**：在数据中包含 `version` 字段，便于后续迁移
+- **数据迁移**：从 localStorage 迁移到 SQLite 时，优先从 SQLite 加载，不存在则从 localStorage 迁移
+
+```typescript
+// 推荐的数据组织方式
+const storage = new PluginStorage(pluginId, userId);
+
+// 初始化加载（自动 JSON 解析，直接返回对象）
+const config = await storage.getConfig<Config>();
+const bookmarks = await storage.getState<Bookmark[]>('bookmarks', []);
+
+// 保存时只更新变化的部分
+await storage.setState('config', newConfig);
+await storage.setState('bookmarks', bookmarks);
+```
+
+**注意事项**：
+- 数据隔离：每个插件只能访问自己 `pluginId` 下的数据
+- 用户隔离：数据按 `userId` 隔离，不同用户数据独立
+- 自动序列化：对象会自动 JSON 序列化存储
+- 自动解析：读取时自动 JSON 解析，直接返回原始数据对象
+- 空值处理：`get` 返回 `null` 或数组（无数据时为空数组）
+- 未登录用户：`userId` 为 `null`，建议使用 `'default'` 作为 fallback
+- 首次使用：建议在插件初始化时检查数据是否存在，不存在则创建默认数据
 
 ### window.toolboxApi
 
