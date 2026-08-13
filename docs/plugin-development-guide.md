@@ -84,7 +84,7 @@ plugin-example/
   "icon": "Package",
   "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/plugin-example/icon.png",
   "color": "#18181B",
-  "textColor": "#FFFFFF",
+  "textColor": "#ffffff",
   "categories": ["工具"],
   "tags": ["example", "demo"],
   "githubRepo": "fqyjfb/plugin-example",
@@ -105,7 +105,7 @@ plugin-example/
 | `icon` | string | 是 | Lucide 图标名，如 `Palette`、`Camera`、`Package` |
 | `iconUrl` | string | 否 | 插件图标 URL |
 | `color` | string | 是 | 主色调，HEX 格式 |
-| `textColor` | string | 否 | 图标文字色，默认 `#FFFFFF`。插件商店中按钮文字会自动根据主题适配，浅色模式显示白色，深色模式显示深色 |
+| `textColor` | string | 否 | 图标文字色，默认 `#ffffff`。插件商店中按钮文字会自动根据主题适配，浅色模式显示白色，深色模式显示深色 |
 | `categories` | string[] | 是 | 分类标签数组 |
 | `tags` | string[] | 否 | 搜索标签，小写英文 |
 | `githubRepo` | string | 是 | GitHub 仓库地址，格式 `{owner}/{repo}` |
