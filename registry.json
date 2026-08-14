@@ -115,7 +115,7 @@
     "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/agnes-ai-plugin/icon.png",
     "color": "#22c55e",
     "textColor": "#ffffff",
-    "version": "1.1.0",
+    "version": "2.0.0",
     "author": "ToolBox Team",
     "entry": "dist/index.js",
     "categories": ["AI", "工具"],
