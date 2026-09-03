@@ -196,5 +196,23 @@
     "isBeta": false,
     "width": 1100,
     "height": 800
+  },
+  {
+    "id": "plugin-one-email",
+    "name": "邮箱聚合",
+    "description": "多邮箱账号聚合管理，支持 IMAP/SMTP 收发、富文本写信、草稿、批量操作、文件夹移动、统一收件箱与未读角标",
+    "icon": "Mail",
+    "iconUrl": "https://raw.githubusercontent.com/fqyjfb/toolbox-plugins-registry/main/icons/one-email-plugin/icon.png",
+    "color": "#2563eb",
+    "textColor": "#ffffff",
+    "version": "0.1.0",
+    "author": "ToolBox Team",
+    "entry": "dist/index.js",
+    "categories": ["效率", "工具"],
+    "tags": ["email", "mail", "imap", "smtp", "inbox", "邮箱"],
+    "githubRepo": "fqyjfb/one-email-plugin",
+    "isBeta": true,
+    "width": 1280,
+    "height": 800
   }
 ]

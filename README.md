@@ -101,6 +101,7 @@ toolbox-plugins-registry/
 | `plugin-screenshot` | 截图工具 | 原生多显示器截图捕获、标注和裁剪工具 | 工具 | [fqyjfb/Screenshot-plugin](https://github.com/fqyjfb/Screenshot-plugin) |
 | `plugin-color-palette` | 调色板 | 颜色选择、多格式转换与配色方案生成工具 | 设计、工具 | [fqyjfb/color-palette-plugin](https://github.com/fqyjfb/color-palette-plugin) |
 | `plugin-file-manager` | 文件管理 | 文件管理工具，支持浏览系统文件、收藏常用路径、拖拽复制文件 | 文件、工具 | [fqyjfb/file-manager-plugin](https://github.com/fqyjfb/file-manager-plugin) |
+| `plugin-one-email` | 邮箱聚合 | 多邮箱账号聚合管理，支持 IMAP/SMTP 收发、富文本写信、草稿、批量操作、文件夹移动、统一收件箱与未读角标 | 效率、工具 | [fqyjfb/one-email-plugin](https://github.com/fqyjfb/one-email-plugin) |
 
 ## 📖 开发文档
 
