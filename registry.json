@@ -141,7 +141,7 @@
     "githubRepo": "fqyjfb/conversion-plugin",
     "isBeta": false,
     "width": 520,
-    "height": 480
+    "height": 560
   },
   {
     "id": "plugin-s3-disk",
